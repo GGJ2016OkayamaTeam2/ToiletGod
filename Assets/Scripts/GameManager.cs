@@ -57,19 +57,19 @@ public class GameManager : MonoBehaviour {
 	public void execSceneChange(SceneState state){
 		switch(state){
 		case SceneState.Main:
-			Application.LoadLevel ("main");
+			FadeManager.Instance.LoadLevel ("main", 2);
 			break;
 		case SceneState.Toile:
-			Application.LoadLevel ("Toire");
+			FadeManager.Instance.LoadLevel ("Toire", 2);
 			break;
 		case SceneState.Toile1:
-			Application.LoadLevel ("Toire 1");
+			FadeManager.Instance.LoadLevel ("Toire 1", 2);
 			break;
 		case SceneState.Result:
-			Application.LoadLevel ("result");
+			FadeManager.Instance.LoadLevel ("result", 2);
 			break;
 		case SceneState.Collection:
-			Application.LoadLevel ("Collection");
+			FadeManager.Instance.LoadLevel ("Collection", 2);
 			break;
 		default:
 			break;
