@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour {
 	public StopWatch stopWatch;
 	public static Int32 scoreInt = 0;
 
+
 	// Use this for initialization
 	void Start () {
 		stopWatch = new StopWatch ();//Default State is Zero.
 		stopWatch.changeState ();//State: Zero state to Play state.
+
 	}
 
 	// Update is called once per frame
@@ -39,10 +41,17 @@ public class StopWatch{
 	DateTime startDateTime;
 	Int32 timeBonus;
 
+	public int secTimeLimit = 120;
+	private TimeSpan timeLimit;
+
 	enum StopwatchState {
 		Zero,
 		Play,
 		Pause
+	}
+
+	public StopWatch(){
+		this.timeLimit = new TimeSpan(0, 0, this.secTimeLimit);//0時間5分0秒.
 	}
 
 	public void update () {
@@ -81,9 +90,12 @@ public class StopWatch{
 		} else {
 			currentTs = lastStopTimeSpan;
 		}
-		this.timeString = ConvertTimeSpanToString(currentTs);
+		TimeSpan timeRemaining = this.timeLimit.Subtract(currentTs);
+		this.timeString = ConvertTimeSpanToString(timeRemaining);
 		this.timeBonus = (Int32)(500000/currentTs.TotalSeconds);
 	}
+
+	//表示の見た目.
 	static public string ConvertTimeSpanToString(TimeSpan ts) {
 		if (ts.Hours > 0 || ts.Days > 0) {
 			return string.Format("{0}:{1:D2}:{2:D2}.{3}", ts.Days * 24 + ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds.ToString("000").Substring(0, 2));
