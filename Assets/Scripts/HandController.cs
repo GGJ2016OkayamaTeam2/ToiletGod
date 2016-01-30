@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEngine.EventSystems;
 
 public class HandController : MonoBehaviour {
-	[SerializeField] private Transform handItem;
+	[SerializeField] private RectTransform handItem;
 	private Vector3 screenPos;
 	private Vector3 worldPos;
     //public Renderer rend;
@@ -29,9 +30,14 @@ public class HandController : MonoBehaviour {
         // Hand Item positon move to cursor position
 		this.screenPos = Input.mousePosition;
 		this.screenPos.z = 10f;
-		this.worldPos = Camera.main.ScreenToWorldPoint (this.screenPos);
-		this.handItem.position = this.worldPos;
+        //this.worldPos = Camera.main.ScreenToWorldPoint (this.screenPos);
+        //this.handItem.position = this.worldPos;
 
+        var canvas = handItem.root.GetComponent<Canvas>();
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out pos);
+        transform.position = canvas.transform.TransformPoint(pos);
+        
         // raycast for erase YOGORE
         if(Input.GetMouseButton(0))
         {
