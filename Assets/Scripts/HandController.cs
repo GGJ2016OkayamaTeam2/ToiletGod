@@ -12,17 +12,27 @@ public class HandController : MonoBehaviour {
     private Vector3 lastRayPos;
     private float rayMovedMag;
     [SerializeField] private float threshold = 2f;
+    [SerializeField] private float zoukinRadius = 1f;
+    [SerializeField] private int zoukinForce = 3;
 
-    [SerializeField] private int force = 3;
+    [SerializeField] private float sprayRadius = 5;
+    [SerializeField] private int sprayForce = 10;
+
+    [SerializeField] private ParticleSystem sprayParticle = null;
+    [SerializeField] private Vector3 sprayOffs = Vector3.zero;
+
+    [SerializeField] private RectTransform sprayImage;
+
+    private Canvas rootCanvas;
 
 	// Use this for initialization
 	void Start () {
-		//this.handItem = GameObject.Find ("HandItem");
-		
+        //this.handItem = GameObject.Find ("HandItem");
+
         //renderer.
-		//rend = GetComponent<Renderer>();
-	
-	}
+        //rend = GetComponent<Renderer>();
+        rootCanvas = handItem.root.GetComponent<Canvas>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,14 +40,13 @@ public class HandController : MonoBehaviour {
         // Hand Item positon move to cursor position
 		this.screenPos = Input.mousePosition;
 		this.screenPos.z = 10f;
-        //this.worldPos = Camera.main.ScreenToWorldPoint (this.screenPos);
+        this.worldPos = Camera.main.ScreenToWorldPoint (this.screenPos);
         //this.handItem.position = this.worldPos;
-
-        var canvas = handItem.root.GetComponent<Canvas>();
         Vector2 pos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out pos);
-        transform.position = canvas.transform.TransformPoint(pos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rootCanvas.transform as RectTransform, Input.mousePosition, rootCanvas.worldCamera, out pos);
+        transform.position = rootCanvas.transform.TransformPoint(pos);
         
+        // ----- ZOUKIN -----
         // raycast for erase YOGORE
         if(Input.GetMouseButton(0))
         {
@@ -51,17 +60,18 @@ public class HandController : MonoBehaviour {
 
             if (rayMovedMag >= threshold)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);                
                 IErasable[] erasables;
 
-                erasables = Physics.RaycastAll(ray, Mathf.Infinity)
+                erasables = Physics.SphereCastAll(ray, zoukinRadius, Mathf.Infinity)
                     .Select(t => t.transform.GetComponent<IErasable>())
-                    .ToArray();                
+                    .ToArray();
+
                 foreach (var erasable in erasables)
                 {
                     if(erasable != null)
                     {
-                        erasable.Erase(force);
+                        erasable.Erase(zoukinForce);
                     }
                 }
                 rayMovedMag = 0;
@@ -69,5 +79,48 @@ public class HandController : MonoBehaviour {
         }
 
         if (Input.GetMouseButtonUp(0)) lastRayPos = Vector3.zero;
+
+        // ----- SPRAY -----
+        if (Input.GetMouseButtonDown(1))
+        {
+            //if(GameManager.GetManager().CanUseSpray())
+            //{            
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            IErasable[] erasables;
+
+            var targets = Physics.SphereCastAll(ray, sprayRadius, Mathf.Infinity);
+
+            erasables = targets
+                .Select(t => t.transform.GetComponent<IErasable>())
+                .ToArray();
+
+            var duration = 0f;
+
+            if(erasables != null && erasables.Length >= 1 )
+            {
+                var sprayPos = transform.position + sprayOffs;
+                sprayPos.y = sprayParticle.transform.position.y;
+                Debug.Log(sprayPos);
+
+                var spray = Instantiate(sprayParticle, sprayPos / 10, sprayParticle.transform.rotation) as ParticleSystem;
+                duration = spray.duration;            
+                Destroy(spray, duration);
+            }
+
+            var simage = Instantiate(sprayImage, transform.position + new Vector3(60, 30, 0), sprayImage.rotation) as RectTransform;
+            simage.parent = transform.parent;
+            Destroy(simage.gameObject, duration);
+
+            foreach (var erasable in erasables)
+            {
+                if (erasable != null)
+                {
+                    erasable.Erase(sprayForce);
+                }
+            }
+            // GameManager.GetManager().DecSprayCount();
+            //}
+        }
     }
 }

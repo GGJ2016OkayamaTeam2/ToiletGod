@@ -54,7 +54,8 @@ public class Yogore : MonoBehaviour, IErasable {
 
     public void Erase(int force)
     {
-        _curHp -= force;
+        curHp -= force;
+
     }
 
     void CleanUp()
