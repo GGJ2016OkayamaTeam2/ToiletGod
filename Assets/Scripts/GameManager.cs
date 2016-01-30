@@ -7,6 +7,16 @@ public class GameManager : MonoBehaviour {
 	public StopWatch stopWatch;
 	public static Int32 scoreInt = 0;
 
+	public enum SceneState{
+		Main,
+		Credit,
+		Collection,
+		Toile,
+		Toile1,
+		Result,
+		Result2
+	}
+
 	//singleton.
 	private static GameManager _gm;
 	public static GameManager GetGameManager(){
@@ -40,6 +50,28 @@ public class GameManager : MonoBehaviour {
 
 	void UpdateScore(){
 		//this.scoreText.text = "Score: " + HUDInGame.getCurrentTotalScore();
+	}
+		
+	public void execSceneChange(SceneState state){
+		switch(state){
+		case SceneState.Main:
+			Application.LoadLevel ("main");
+			break;
+		case SceneState.Toile:
+			Application.LoadLevel ("Toire");
+			break;
+		case SceneState.Toile1:
+			Application.LoadLevel ("Toire 1");
+			break;
+		case SceneState.Result:
+			Application.LoadLevel ("result");
+			break;
+		case SceneState.Collection:
+			Application.LoadLevel ("Collection");
+			break;
+		default:
+			break;
+		}
 	}
 }
 

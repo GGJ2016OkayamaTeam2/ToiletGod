@@ -6,6 +6,6 @@ public class button2 : MonoBehaviour
 
     public void NextScene()
     {
-        Application.LoadLevel("main");
+		GameManager.GetGameManager ().execSceneChange (GameManager.SceneState.Main);
     }
 }

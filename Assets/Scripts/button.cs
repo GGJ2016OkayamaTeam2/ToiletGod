@@ -6,6 +6,6 @@ public class button : MonoBehaviour
 
     public void NextScene()
     {
-            Application.LoadLevel("credit");
+		GameManager.GetGameManager ().execSceneChange (GameManager.SceneState.Credit);
     }
 }

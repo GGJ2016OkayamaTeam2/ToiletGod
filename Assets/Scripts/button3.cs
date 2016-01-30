@@ -6,6 +6,6 @@ public class button3 : MonoBehaviour
 
     public void NextScene()
     {
-        Application.LoadLevel("toire");
+		GameManager.GetGameManager ().execSceneChange (GameManager.SceneState.Toile);
     }
 }

@@ -6,6 +6,6 @@ public class button7 : MonoBehaviour
 
     public void NextScene()
     {
-        Application.LoadLevel("result");
+		GameManager.GetGameManager ().execSceneChange (GameManager.SceneState.Result);
     }
 }
