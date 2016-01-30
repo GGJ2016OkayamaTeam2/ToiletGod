@@ -1,0 +1,28 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "Cagliostro2048-ver1-1",
+	"model": "Cagliostro2048-ver1-1.moc",
+	"textures": [
+		"Cagliostro2048-ver1-1.2048/texture_00.png"
+	]
+	"motions":{
+		"null":[
+			{
+				"file":"motions/my_ver100_yes.mtn"
+			},
+			{
+				"file":"motions/my_ver100_no.mtn"
+			},
+			{
+				"file":"motions/my_ver100_idle_00.mtn"
+			},
+			{
+				"file":"motions/my_ver100_idle_01.mtn"
+			},
+			{
+				"file":"motions/my_ver100_appeal_00.mtn"
+			},
+		]
+	}
+	"physics":"Cagliostro2048-ver1-1.physics.json"
+}
