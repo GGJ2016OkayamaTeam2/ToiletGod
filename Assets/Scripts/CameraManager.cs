@@ -7,6 +7,7 @@ using System;
 /// </summary>
 public class CameraManager : MonoBehaviour {
 
+    /* OLDER VERSION
     // ----- FOR DEBUG -----
     [Header(" ===== DEBUG =====")]
     [SerializeField] private bool canMove = true;
@@ -260,5 +261,82 @@ public class CameraManager : MonoBehaviour {
         {
             return PosDivision.Bottom;
         }
+    }*/
+
+    [Serializable]
+    private class DestinationSettings
+    {
+        public Vector3 destPos = Vector3.zero;
+        public Vector3 destAngle = Vector3.zero;
+        public AnimationCurve tweenCurve = new AnimationCurve();
+        public float tweenTime = 0;
     }
+
+    [SerializeField] private DestinationSettings destinationSettings;
+
+    private Transform mainCamTransform;
+    
+    private bool isTweening = false;
+    //private Vector3 lastFarPosition = Vector3.zero;
+
+    // cache manager.
+    private static CameraManager _manager;
+    public static CameraManager GetManager()
+    {
+        if (!_manager)
+        {
+            _manager = FindObjectOfType<CameraManager>() as CameraManager;
+            if (!_manager)
+            {
+                _manager = new GameObject("CameraManager").AddComponent<CameraManager>();
+            }
+        }
+        return _manager;
+    }
+
+    void Awake()
+    {
+        mainCamTransform = Camera.main.transform;
+    }
+
+    void Start()
+    {
+        ExpansionCamera();
+    }
+
+    public void ExpansionCamera()
+    {
+        if (isTweening) return;
+
+        // save last camera position at far.
+        //lastFarPosition = mainCamTransform.position;        
+        StartCoroutine(ExpansionCor());
+    }
+
+    IEnumerator ExpansionCor()
+    {
+        var startTime = Time.time;
+        isTweening = true;
+
+        var initPos = mainCamTransform.position;
+        var destPos = destinationSettings.destPos;
+
+        var initAng = mainCamTransform.eulerAngles;
+        var destAng = destinationSettings.destAngle;
+        
+        while (Time.time - startTime < destinationSettings.tweenTime)
+        {
+            float rate = (Time.time - startTime) / destinationSettings.tweenTime;
+            var pos = destinationSettings.tweenCurve.Evaluate(rate);
+            
+            mainCamTransform.position = Vector3.Lerp(initPos, destPos, pos);
+            mainCamTransform.eulerAngles = Vector3.Lerp(initAng, destAng, pos);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        mainCamTransform.position = destPos;
+        isTweening = false;
+    }
+
 }

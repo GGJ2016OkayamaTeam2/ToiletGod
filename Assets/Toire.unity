@@ -85,70 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &236957165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 4f407c8f1bca2d14f8ca9427e52e80ad, type: 3}
-  m_PrefabInternal: {fileID: 1417550507}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 236957168}
-  - 33: {fileID: 236957167}
-  - 23: {fileID: 236957166}
-  m_Layer: 0
-  m_Name: toilet_bathroom_01_starter_01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &236957166
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 4f407c8f1bca2d14f8ca9427e52e80ad,
-    type: 3}
-  m_PrefabInternal: {fileID: 1417550507}
-  m_GameObject: {fileID: 236957165}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 266edb66c3e96fb4288225933af5778c, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &236957167
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 4f407c8f1bca2d14f8ca9427e52e80ad,
-    type: 3}
-  m_PrefabInternal: {fileID: 1417550507}
-  m_GameObject: {fileID: 236957165}
-  m_Mesh: {fileID: 4300000, guid: 4f407c8f1bca2d14f8ca9427e52e80ad, type: 3}
---- !u!4 &236957168
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 4f407c8f1bca2d14f8ca9427e52e80ad, type: 3}
-  m_PrefabInternal: {fileID: 1417550507}
-  m_GameObject: {fileID: 236957165}
-  m_LocalRotation: {x: 0, y: -0.99990255, z: 0, w: -0.013963165}
-  m_LocalPosition: {x: -52, y: 0, z: 169}
-  m_LocalScale: {x: 6.0592175, y: 5.2493896, z: 3.5170825}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
 --- !u!1 &494850479
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +233,8 @@ GameObject:
   - 92: {fileID: 1086858141}
   - 124: {fileID: 1086858140}
   - 81: {fileID: 1086858139}
+  - 114: {fileID: 1086858144}
+  - 114: {fileID: 1086858145}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -371,6 +309,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1086858144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1086858138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8339f520957bc40a884b914bd28a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationSettings:
+    destPos: {x: -59, y: 380, z: 74}
+    destAngle: {x: 80, y: 0, z: 0}
+    tweenCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    tweenTime: 1.5
+--- !u!114 &1086858145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1086858138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fbdd6ab72130247861e4b396859e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSheetData: {fileID: 11400000, guid: 91046a9d29a454a4e900a2f33d3fe3d2, type: 2}
+  center: {x: -53, y: 222, z: 140}
+  radius: 75
+  maxZForBenza: 175
+  minZForBenza: -1
+  maxXForBenza: -1
+  minXForBenza: -1
+  angleRandomMin: -5
+  angleRandomMax: 5
+  yogore: {fileID: 489822, guid: 9d5be697b433b234994ecdbd57822b7d, type: 2}
 --- !u!1 &1124780718
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +489,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f407c8f1bca2d14f8ca9427e52e80ad, type: 3}
-  m_RootGameObject: {fileID: 236957165}
   m_IsPrefabParent: 0
 --- !u!1 &1728393127
 GameObject:
