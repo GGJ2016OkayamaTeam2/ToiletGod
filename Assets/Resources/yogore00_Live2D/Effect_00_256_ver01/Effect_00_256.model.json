@@ -1,0 +1,8 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "Effect_00_256",
+	"model": "Effect_00_256.moc",
+	"textures": [
+		"Effect_00_256.256/texture_00.png"
+	]
+}
