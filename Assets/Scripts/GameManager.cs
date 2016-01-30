@@ -45,13 +45,15 @@ public class GameManager : MonoBehaviour {
 		UpdateScore ();
 	} 
 
-	void UpdateTime(){
-		//timeText.text = "Time: " + stopWatch.getCurrentTimeString ();
-		Debug.Log(stopWatch.getCurrentTimeString());
+	private void UpdateTime(){
+		//Debug.Log(stopWatch.getCurrentTimeString());
 	}
 
-	void UpdateScore(){
-		//this.scoreText.text = "Score: " + HUDInGame.getCurrentTotalScore();
+	private void UpdateScore(){
+	}
+
+	public String getCurrentTimeLimitStr(){
+		return stopWatch.getCurrentTimeString ();
 	}
 		
 	public void execSceneChange(SceneState state){
@@ -95,6 +97,7 @@ public class StopWatch{
 	Int32 timeBonus;
 
 	public int secTimeLimit = 120;
+
 	private TimeSpan timeLimit;
 
 	enum StopwatchState {
