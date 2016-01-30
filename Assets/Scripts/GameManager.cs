@@ -7,12 +7,23 @@ public class GameManager : MonoBehaviour {
 	public StopWatch stopWatch;
 	public static Int32 scoreInt = 0;
 
+	//singleton.
+	private static GameManager _gm;
+	public static GameManager GetGameManager(){
+		if (!_gm) {
+			_gm = FindObjectOfType<GameManager> () as GameManager;
+			if (!_gm) {
+				_gm = new GameObject ("GameManager").AddComponent<GameManager> ();
+			}
+		}
+		return _gm;
+	}
+
 
 	// Use this for initialization
 	void Start () {
 		stopWatch = new StopWatch ();//Default State is Zero.
 		stopWatch.changeState ();//State: Zero state to Play state.
-
 	}
 
 	// Update is called once per frame
