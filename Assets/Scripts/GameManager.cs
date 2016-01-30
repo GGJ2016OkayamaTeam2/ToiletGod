@@ -5,7 +5,8 @@ using System;
 
 public class GameManager : MonoBehaviour {
 	public StopWatch stopWatch;
-	public static Int32 scoreInt = 0;
+	public int sprayUsageRemain;
+	private int curSprayRemain;
 
 	public enum SceneState{
 		Main,
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		stopWatch = new StopWatch ();//Default State is Zero.
 		stopWatch.changeState ();//State: Zero state to Play state.
+		this.curSprayRemain = this.sprayUsageRemain;
 	}
 
 	// Update is called once per frame
@@ -72,6 +74,14 @@ public class GameManager : MonoBehaviour {
 		default:
 			break;
 		}
+	}
+
+	public void decSprayCount(){
+		this.curSprayRemain--;
+	}
+
+	public int getSprayRemain(){
+		return this.curSprayRemain;
 	}
 }
 
