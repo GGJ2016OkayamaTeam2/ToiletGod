@@ -28,7 +28,7 @@ public class Yogore : MonoBehaviour, IErasable {
     }
 
     // effect after clean up
-    [SerializeField] private GameObject cleanupEffect;
+    [SerializeField] private ParticleSystem cleanupEffect;
 
     void Awake()
     {
@@ -47,7 +47,6 @@ public class Yogore : MonoBehaviour, IErasable {
                 yield return new WaitForEndOfFrame();
                 continue;
             }
-
             yield return new WaitForSeconds(yogoreData.recover_interval);
             curHp += yogoreData.recover_value;
         }
@@ -62,8 +61,10 @@ public class Yogore : MonoBehaviour, IErasable {
     {
         if (cleanupEffect)
         {
-            Debug.Log("SET UP CLEAN UP EFFECT!");
-            Instantiate(cleanupEffect, transform.position, Quaternion.identity);
+            var kira = Instantiate(cleanupEffect, transform.position, Quaternion.identity) as ParticleSystem;
+            Destroy(kira.gameObject, kira.duration);
         }
+
+        Destroy(gameObject);        
     }
 }
