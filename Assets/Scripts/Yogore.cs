@@ -47,7 +47,6 @@ public class Yogore : MonoBehaviour, IErasable {
                 yield return new WaitForEndOfFrame();
                 continue;
             }
-
             yield return new WaitForSeconds(yogoreData.recover_interval);
             curHp += yogoreData.recover_value;
         }
@@ -62,8 +61,9 @@ public class Yogore : MonoBehaviour, IErasable {
     {
         if (cleanupEffect)
         {
-            Debug.Log("SET UP CLEAN UP EFFECT!");
             Instantiate(cleanupEffect, transform.position, Quaternion.identity);
         }
+
+        Destroy(gameObject);        
     }
 }
