@@ -19,6 +19,7 @@ public class YogoreManager : MonoBehaviour {
     [SerializeField] private float angleRandomMax = 5f;
 
     private int yogoreCount;
+	private bool isClear = false;
 
     // cache manager.
     private static YogoreManager _manager;
@@ -36,6 +37,7 @@ public class YogoreManager : MonoBehaviour {
     }
 
     [SerializeField] private Transform yogore;
+	[SerializeField] private GameObject l2dChar;
 
 
     void Awake()
@@ -55,6 +57,7 @@ public class YogoreManager : MonoBehaviour {
 
     public void InitStage(int index)
     {
+		this.isClear = false;
         // select data
         levelData = levelSheetData.sheets[0].list[index];
 
@@ -94,9 +97,17 @@ public class YogoreManager : MonoBehaviour {
     public void DecYogoreCount()
     {
         yogoreCount--;
-        if(yogoreCount <= 0)
+		if(yogoreCount <= 0 && !this.isClear)
         {
+			this.isClear = true;
+			this.displayLive2DChar ();
             GameManager.GetGameManager().CheckScoreAndGotoResult();
         }
     }
+
+	private void displayLive2DChar(){
+		// プレハブからインスタンスを生成	
+		GameObject l2Char = (GameObject)Instantiate (this.l2dChar, new Vector3(-115,230,90), Quaternion.identity);
+		l2Char.transform.Rotate(90, 0, 0);
+	}
 }
