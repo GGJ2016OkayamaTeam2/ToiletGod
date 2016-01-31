@@ -52,7 +52,7 @@ public class YogoreManager : MonoBehaviour {
     // ===== DEBUG ======
     void Start()
     {
-        InitStage(0);
+        InitStage(GameManager.GetGameManager().getCurRoundId());
     }
 
 
@@ -98,7 +98,7 @@ public class YogoreManager : MonoBehaviour {
 	void Update(){
 		if (this.isClear) {
 			delay5Sec ();//5秒経過したら強制的に結果画面へ.
-
+            
 			if (Input.GetMouseButtonDown (0)) {
 				GameManager.GetGameManager().CheckScoreAndGotoResult();
 			}
@@ -123,7 +123,6 @@ public class YogoreManager : MonoBehaviour {
 
 	private void delay5Sec(){
 		this.elapsedCleardTime += Time.deltaTime;
-		Debug.Log (this.elapsedCleardTime);
 		if (this.elapsedCleardTime >= 5.0f) {
 			GameManager.GetGameManager().CheckScoreAndGotoResult();
 		}
