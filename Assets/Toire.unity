@@ -133,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handItem: {fileID: 230561103}
   threshold: 1
-  zoukinRadius: 2
-  zoukinForce: 3
+  zoukinRadius: 4
+  zoukinForce: 5
   sprayRadius: 10
   sprayForce: 10
   sprayParticle: {fileID: 19863004, guid: 9de1535bb280d8746b104279c18a9441, type: 2}

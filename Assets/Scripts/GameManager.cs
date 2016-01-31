@@ -5,7 +5,7 @@ using System;
 
 public class GameManager : MonoBehaviour {
 	//public StopWatch stopWatch;
-	public int sprayUsageRemain;
+	[SerializeField] private int sprayUsageRemain;
 	private int curSprayRemain;
 
     private int round = 0;
@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour {
     {
         levelData = levelDataSheet.sheets[0].list[round];
         timeLimit = levelData.time_limit;
+        score = 0;
+        this.curSprayRemain = this.sprayUsageRemain;
         //stopWatch = new StopWatch(levelData.time_limit);
     }
 
@@ -64,8 +66,7 @@ public class GameManager : MonoBehaviour {
 
 		//stopWatch = new StopWatch ();//Default State is Zero.
 
-		//stopWatch.changeState ();//State: Zero state to Play state.
-		this.curSprayRemain = this.sprayUsageRemain;
+		//stopWatch.changeState ();//State: Zero state to Play state.		
 	}
 
 	// Update is called once per frame
