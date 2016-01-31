@@ -194,6 +194,10 @@ public class GameManager : MonoBehaviour {
 	public int getSprayRemain(){
 		return this.curSprayRemain;
 	}
+
+	public int getCurRoundId(){
+		return this.round;
+	}
 }
 
 /*
