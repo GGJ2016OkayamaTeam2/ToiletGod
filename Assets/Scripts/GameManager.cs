@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour {
 		Toile,
 		Toile1,
 		Result,
-		Result2
+		Result2,
+        Result3
 	}
 
     private SceneState currentState;
@@ -78,6 +79,8 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         InitLevelData();
+
+        AudioManager.Instance.PlayBGM(BGM.BGM1);
 
 		//stopWatch = new StopWatch ();//Default State is Zero.
 
@@ -163,21 +166,29 @@ public class GameManager : MonoBehaviour {
         currentState = state;
 
         switch (state){
-		case SceneState.Main:
-			FadeManager.Instance.LoadLevel ("main", 1);
+            case SceneState.Main:
+                AudioManager.Instance.CrossFade(BGM.BGM1, 1);
+                FadeManager.Instance.LoadLevel ("main", 1);
 			break;
-		case SceneState.Toile:
-			FadeManager.Instance.LoadLevel ("Toire", 1);
+
+            case SceneState.Toile:
+                AudioManager.Instance.CrossFade(BGM.BGM1, 1);
+                FadeManager.Instance.LoadLevel ("Toire", 1);
 			break;
-		case SceneState.Toile1:
-			FadeManager.Instance.LoadLevel ("Toire 1", 1);
+
+            case SceneState.Result: // congratu
+                AudioManager.Instance.CrossFade(BGM.clap_excellent);
+                FadeManager.Instance.LoadLevel ("result", 1);
 			break;
-		case SceneState.Result:
-			FadeManager.Instance.LoadLevel ("result", 1);
-			break;
-		case SceneState.Collection:
-			FadeManager.Instance.LoadLevel ("Collection", 1);
-			break;
+
+            case SceneState.Result2: // clear
+                AudioManager.Instance.CrossFade(BGM.clap, 1);
+                break;
+
+            case SceneState.Result3: // miss
+                AudioManager.Instance.CrossFade(BGM.miss, 1);
+                break;
+
 		default:
 			break;
 		}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6966fd4710db0541a58fbf30bf31404, type: 3}
+  m_Name: AudioData
+  m_EditorClassIdentifier: 
+  bgmPath: Assets/Audio/BGM
+  sePath: Assets/Audio/SE
+  mixerGroupPath: Assets/Audio/Mixer
+  bgmDictionary:
+    keys:
+    - BGM1
+    values:
+    - {fileID: 8300000, guid: b9e69c9663916fd4e9de228be33ad719, type: 3}
+  seDictionary:
+    keys:
+    - clap_excellent
+    - clap
+    - miss
+    values:
+    - {fileID: 8300000, guid: aefb393159a2e5848ba33dd4e20e6175, type: 3}
+    - {fileID: 8300000, guid: c3408e1e9dda3c2478042dd2e16eb985, type: 3}
+    - {fileID: 8300000, guid: d2ae20fb1e5882547b6c2ffcb913f504, type: 3}
+  mixerDictionary:
+    keys: []
+    values: []
+  groupDictionary:
+    keys: []
+    values: []
+  bgmFilePathList:
+  - Assets/Audio/BGM/BGM1.wav
+  seFilePathList:
+  - Assets/Audio/SE/clap_excellent.mp3
+  - Assets/Audio/SE/clap.mp3
+  - Assets/Audio/SE/miss.mp3
