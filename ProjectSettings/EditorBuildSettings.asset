@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/resalt2.unity
   - enabled: 1
     path: Assets/result.unity
+  - enabled: 1
+    path: Assets/resalt3.unity

@@ -15,20 +15,140 @@ MonoBehaviour:
   - name: LevelData
     list:
     - stage: 0
-      yogore_count: 100
-      time_limit: 30
+      yogore_count: 5
+      time_limit: 90
     - stage: 1
       yogore_count: 15
-      time_limit: 30
+      time_limit: 90
     - stage: 2
-      yogore_count: 20
-      time_limit: 30
+      yogore_count: 50
+      time_limit: 90
     - stage: 3
-      yogore_count: 25
-      time_limit: 30
+      yogore_count: 100
+      time_limit: 90
     - stage: 4
-      yogore_count: 30
-      time_limit: 30
+      yogore_count: 70
+      time_limit: 60
     - stage: 5
-      yogore_count: 35
+      yogore_count: 100
+      time_limit: 60
+    - stage: 6
+      yogore_count: 150
+      time_limit: 60
+    - stage: 7
+      yogore_count: 200
+      time_limit: 60
+    - stage: 8
+      yogore_count: 70
       time_limit: 30
+    - stage: 9
+      yogore_count: 100
+      time_limit: 30
+    - stage: 10
+      yogore_count: 150
+      time_limit: 30
+    - stage: 11
+      yogore_count: 200
+      time_limit: 30
+    - stage: 12
+      yogore_count: 80
+      time_limit: 15
+    - stage: 13
+      yogore_count: 120
+      time_limit: 15
+    - stage: 14
+      yogore_count: 180
+      time_limit: 15
+    - stage: 15
+      yogore_count: 220
+      time_limit: 15
+    - stage: 16
+      yogore_count: 100
+      time_limit: 10
+    - stage: 17
+      yogore_count: 150
+      time_limit: 10
+    - stage: 18
+      yogore_count: 200
+      time_limit: 10
+    - stage: 19
+      yogore_count: 250
+      time_limit: 10
+    - stage: 20
+      yogore_count: 150
+      time_limit: 7
+    - stage: 21
+      yogore_count: 220
+      time_limit: 7
+    - stage: 22
+      yogore_count: 300
+      time_limit: 7
+    - stage: 23
+      yogore_count: 150
+      time_limit: 5
+    - stage: 24
+      yogore_count: 220
+      time_limit: 5
+    - stage: 25
+      yogore_count: 300
+      time_limit: 5
+    - stage: 26
+      yogore_count: 150
+      time_limit: 4
+    - stage: 27
+      yogore_count: 220
+      time_limit: 4
+    - stage: 28
+      yogore_count: 300
+      time_limit: 4
+    - stage: 29
+      yogore_count: 150
+      time_limit: 3
+    - stage: 30
+      yogore_count: 220
+      time_limit: 3
+    - stage: 31
+      yogore_count: 300
+      time_limit: 3
+    - stage: 32
+      yogore_count: 150
+      time_limit: 2
+    - stage: 33
+      yogore_count: 220
+      time_limit: 2
+    - stage: 34
+      yogore_count: 300
+      time_limit: 2
+    - stage: 35
+      yogore_count: 150
+      time_limit: 1
+    - stage: 36
+      yogore_count: 220
+      time_limit: 1
+    - stage: 37
+      yogore_count: 300
+      time_limit: 1
+    - stage: 38
+      yogore_count: 500
+      time_limit: 1
+    - stage: 39
+      yogore_count: 600
+      time_limit: 1
+    - stage: 40
+      yogore_count: 700
+      time_limit: 1
+    - stage: 41
+      yogore_count: 800
+      time_limit: 1
+    - stage: 42
+      yogore_count: 900
+      time_limit: 1
+    - stage: 43
+      yogore_count: 1000
+      time_limit: 1
+    - stage: 44
+      yogore_count: 2000
+      time_limit: 1
+    - stage: 45
+      yogore_count: 3000
+      time_limit: 1
