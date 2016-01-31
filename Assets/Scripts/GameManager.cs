@@ -82,12 +82,33 @@ public class GameManager : MonoBehaviour {
             timeLimit -= Time.deltaTime;
             if (timeLimit <= 0)
             {
-                execSceneChange(SceneState.Result);
+                CheckScoreAndGotoResult();
             }
         }
 
 		//Debug.Log(stopWatch.getCurrentTimeString());
 	}
+
+    public void CheckScoreAndGotoResult()
+    {
+        // maxScore : score per enemy
+        var maxScore = 100 * levelData.yogore_count;
+
+        if (score >= maxScore * 0.6f)
+        {
+            // congratulation
+            execSceneChange(SceneState.Result);
+        }
+        else if (score >= maxScore * 0.3f)
+        {
+            // clear
+            
+        }
+        else
+        {
+            // cool
+        }
+    }
 
     public float GetCurrentTime()
     {

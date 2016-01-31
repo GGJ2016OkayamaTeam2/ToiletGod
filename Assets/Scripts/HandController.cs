@@ -48,6 +48,25 @@ public class HandController : MonoBehaviour {
         
         // ----- ZOUKIN -----
         // raycast for erase YOGORE
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            IErasable[] erasables;
+
+            erasables = Physics.SphereCastAll(ray, zoukinRadius, Mathf.Infinity)
+                .Select(t => t.transform.GetComponent<IErasable>())
+                .ToArray();
+
+            foreach (var erasable in erasables)
+            {
+                if (erasable != null)
+                {
+                    erasable.Erase(zoukinForce);
+                }
+            }
+        }
+
         if(Input.GetMouseButton(0))
         {
             if(lastRayPos == Vector3.zero)

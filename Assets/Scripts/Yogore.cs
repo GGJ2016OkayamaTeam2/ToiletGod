@@ -67,6 +67,7 @@ public class Yogore : MonoBehaviour, IErasable {
         }
 
         GameManager.GetGameManager().AddScore(score);
+        YogoreManager.GetManager().DecYogoreCount();
 
         Destroy(gameObject);        
     }
