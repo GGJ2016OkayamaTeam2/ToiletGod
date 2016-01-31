@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprayUsageRemain: 0
+  levelDataSheet: {fileID: 11400000, guid: 91046a9d29a454a4e900a2f33d3fe3d2, type: 2}
 --- !u!4 &1049917600
 Transform:
   m_ObjectHideFlags: 0
@@ -1222,6 +1223,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058894191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bf29b4297358d4d8793aa7f63a18d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 94eb97656eba68b4c8ca18901bc7ceb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -71,7 +71,6 @@ public class HandController : MonoBehaviour {
                 {
                     if(erasable != null)
                     {
-                        Debug.Log("call");
                         erasable.Erase(zoukinForce);
                     }
                 }
@@ -110,7 +109,8 @@ public class HandController : MonoBehaviour {
             }
 
             var simage = Instantiate(sprayImage, transform.position + new Vector3(60, 30, 0), sprayImage.rotation) as RectTransform;
-            simage.parent = transform.parent;
+            //simage.parent = transform.parent;
+            simage.SetParent(transform.parent);
             Destroy(simage.gameObject, duration);
 
             foreach (var erasable in erasables)
