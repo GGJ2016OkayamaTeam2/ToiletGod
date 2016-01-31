@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour {
         score = 0;
         this.curSprayRemain = this.sprayUsageRemain;
         canUseSpray = true;
+       
 
         //stopWatch = new StopWatch(levelData.time_limit);
     }
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour {
     {
         // maxScore : score per enemy
         var maxScore = 100 * levelData.yogore_count;
-
+        Debug.Log(maxScore);
         if (score >= maxScore * 0.6f)
         {
             // congratulation
@@ -120,11 +121,12 @@ public class GameManager : MonoBehaviour {
         else if (score >= maxScore * 0.3f)
         {
             // clear
-            
+            execSceneChange(SceneState.Result2);
         }
         else
         {
             // cool
+            execSceneChange(SceneState.Result3);
         }
     }
 
@@ -151,6 +153,7 @@ public class GameManager : MonoBehaviour {
     {
         round++;
         InitLevelData();
+        
     }
 
     public void StaySameRound()
@@ -185,12 +188,14 @@ public class GameManager : MonoBehaviour {
                 FadeManager.Instance.LoadLevel ("result", 1);
 			break;
 
-            case SceneState.Result2: // clear
-                AudioManager.Instance.CrossFade(BGM.clap, 1);
+            case SceneState.Result2:
+                AudioManager.Instance.CrossFade(BGM.clap);
+                FadeManager.Instance.LoadLevel("resalt2", 1);
                 break;
 
-            case SceneState.Result3: // miss
-                AudioManager.Instance.CrossFade(BGM.miss, 1);
+            case SceneState.Result3:
+                AudioManager.Instance.CrossFade(BGM.miss);
+                FadeManager.Instance.LoadLevel("resalt3", 1);
                 break;
 
 		default:

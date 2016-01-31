@@ -1024,6 +1024,27 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1735321110}
+    - target: {fileID: 11460690, guid: 6020b6627bad5ec409166b176665b526, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c13e7588572ba4148a6782a64df2faf4,
+        type: 3}
+    - target: {fileID: 11460690, guid: 6020b6627bad5ec409166b176665b526, type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403210, guid: 6020b6627bad5ec409166b176665b526, type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403210, guid: 6020b6627bad5ec409166b176665b526, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403210, guid: 6020b6627bad5ec409166b176665b526, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6020b6627bad5ec409166b176665b526, type: 2}
   m_IsPrefabParent: 0
@@ -1042,6 +1063,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94eb97656eba68b4c8ca18901bc7ceb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1735321111 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 135478, guid: 6020b6627bad5ec409166b176665b526, type: 2}
+  m_PrefabInternal: {fileID: 1735321108}
+--- !u!114 &1735321112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735321111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &1735321113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1735321111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1742206738
 GameObject:
   m_ObjectHideFlags: 0
