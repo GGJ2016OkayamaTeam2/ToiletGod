@@ -185,12 +185,14 @@ public class GameManager : MonoBehaviour {
                 FadeManager.Instance.LoadLevel ("result", 1);
 			break;
 
-            case SceneState.Result2: // clear
-                AudioManager.Instance.CrossFade(BGM.clap, 1);
+            case SceneState.Result2:
+                AudioManager.Instance.CrossFade(BGM.clap);
+                FadeManager.Instance.LoadLevel("resalt2", 1);
                 break;
 
-            case SceneState.Result3: // miss
-                AudioManager.Instance.CrossFade(BGM.miss, 1);
+            case SceneState.Result3:
+                AudioManager.Instance.CrossFade(BGM.miss);
+                FadeManager.Instance.LoadLevel("resalt3", 1);
                 break;
 
 		default:
