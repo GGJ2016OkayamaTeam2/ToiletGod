@@ -29,6 +29,7 @@ public class Yogore : MonoBehaviour, IErasable {
 
     // effect after clean up
     [SerializeField] private ParticleSystem cleanupEffect;
+    [SerializeField] private int score = 100;
 
     void Awake()
     {
@@ -55,7 +56,6 @@ public class Yogore : MonoBehaviour, IErasable {
     public void Erase(int force)
     {
         curHp -= force;
-
     }
 
     void CleanUp()
@@ -65,6 +65,8 @@ public class Yogore : MonoBehaviour, IErasable {
             var kira = Instantiate(cleanupEffect, transform.position, Quaternion.identity) as ParticleSystem;
             Destroy(kira.gameObject, kira.duration);
         }
+
+        GameManager.GetGameManager().AddScore(score);
 
         Destroy(gameObject);        
     }

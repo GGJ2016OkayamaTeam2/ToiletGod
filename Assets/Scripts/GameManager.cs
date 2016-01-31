@@ -4,14 +4,18 @@ using UnityEngine.UI;
 using System;
 
 public class GameManager : MonoBehaviour {
-	public StopWatch stopWatch;
+	//public StopWatch stopWatch;
 	public int sprayUsageRemain;
 	private int curSprayRemain;
 
     private int round = 0;
+    private int score = 0;
 
     [SerializeField] private Entity_LevelData levelDataSheet;
     private Entity_LevelData.Param levelData;
+
+    private float timeLimit;
+
 
 	public enum SceneState{
 		Main,
@@ -22,6 +26,8 @@ public class GameManager : MonoBehaviour {
 		Result,
 		Result2
 	}
+
+    private SceneState currentState;
 
 	//singleton.
 	private static GameManager _gm;
@@ -35,10 +41,21 @@ public class GameManager : MonoBehaviour {
 		return _gm;
 	}
 
+    void Awake()
+    {
+        if(_gm && _gm != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     void InitLevelData()
     {
         levelData = levelDataSheet.sheets[0].list[round];
-        stopWatch = new StopWatch(levelData.time_limit);
+        timeLimit = levelData.time_limit;
+        //stopWatch = new StopWatch(levelData.time_limit);
     }
 
 	// Use this for initialization
@@ -47,45 +64,82 @@ public class GameManager : MonoBehaviour {
 
 		//stopWatch = new StopWatch ();//Default State is Zero.
 
-
-		stopWatch.changeState ();//State: Zero state to Play state.
+		//stopWatch.changeState ();//State: Zero state to Play state.
 		this.curSprayRemain = this.sprayUsageRemain;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		stopWatch.update ();
+		//stopWatch.update ();
 		UpdateTime ();
 		UpdateScore ();
 	} 
 
 	private void UpdateTime(){
+        if(currentState == SceneState.Toile)
+        {
+            timeLimit -= Time.deltaTime;
+            if (timeLimit <= 0)
+            {
+                execSceneChange(SceneState.Result);
+            }
+        }
+
 		//Debug.Log(stopWatch.getCurrentTimeString());
 	}
 
+    public float GetCurrentTime()
+    {
+        return timeLimit;
+    }
+
 	private void UpdateScore(){
+
 	}
 
-	public String getCurrentTimeLimitStr(){
-		return stopWatch.getCurrentTimeString ();
-	}
+    public void AddScore(int add)
+    {
+        score += add;
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public void GoNextRound()
+    {
+        round++;
+        InitLevelData();
+    }
+
+    public void StaySameRound()
+    {
+        InitLevelData();
+    }
+
+	//public String getCurrentTimeLimitStr(){
+	//	return stopWatch.getCurrentTimeString ();
+	//}
 		
 	public void execSceneChange(SceneState state){
-		switch(state){
+        currentState = state;
+
+        switch (state){
 		case SceneState.Main:
-			FadeManager.Instance.LoadLevel ("main", 2);
+			FadeManager.Instance.LoadLevel ("main", 1);
 			break;
 		case SceneState.Toile:
 			FadeManager.Instance.LoadLevel ("Toire", 1);
 			break;
 		case SceneState.Toile1:
-			FadeManager.Instance.LoadLevel ("Toire 1", 2);
+			FadeManager.Instance.LoadLevel ("Toire 1", 1);
 			break;
 		case SceneState.Result:
-			FadeManager.Instance.LoadLevel ("result", 2);
+			FadeManager.Instance.LoadLevel ("result", 1);
 			break;
 		case SceneState.Collection:
-			FadeManager.Instance.LoadLevel ("Collection", 2);
+			FadeManager.Instance.LoadLevel ("Collection", 1);
 			break;
 		default:
 			break;
@@ -101,7 +155,7 @@ public class GameManager : MonoBehaviour {
 	}
 }
 
-
+/*
 public class StopWatch{
 	public TextMesh timeText;
 	public String timeString;
@@ -143,6 +197,7 @@ public class StopWatch{
 	 * 
 	 * TODO: ポーズから復帰した時にタイムが変にならないかどうかはまだ検証していません.
 	 */
+     /*
 	public void changeState() {
 		if (state == StopwatchState.Pause) {
 			lastStopTimeSpan = new TimeSpan(0);
@@ -177,12 +232,12 @@ public class StopWatch{
 		} else {
 			return string.Format("{0}:{1:D2}.{2}", ts.Minutes, ts.Seconds, ts.Milliseconds.ToString("000").Substring(0, 2));
 		}
-
 	}
+
 	public string getCurrentTimeString(){
 		return this.timeString;
 	}
 	public Int32 getTimeBonus(){
 		return this.timeBonus;
 	}
-}
+}*/
