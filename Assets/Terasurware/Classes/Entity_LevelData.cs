@@ -19,7 +19,7 @@ public class Entity_LevelData : ScriptableObject
 		
 		public int stage;
 		public int yogore_count;
-		public float time_limit;
+		public int time_limit;
 	}
 }
 

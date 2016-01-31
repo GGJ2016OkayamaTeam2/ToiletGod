@@ -64,7 +64,7 @@ public class YogoreManager : MonoBehaviour {
         }
 
         // layout circlely.
-        float angleDiff = 360f / (float)yogores.Count;
+        float angleDiff = 360f / yogores.Count;
 
         for (int i = 0; i < yogores.Count; i++)
         {
@@ -72,11 +72,15 @@ public class YogoreManager : MonoBehaviour {
 
             float angle = (90 - angleDiff * i) * Mathf.Deg2Rad;
             angle += Random.Range(angleRandomMin, angleRandomMax);
+
             pos.x += radius * Mathf.Cos(angle);
+            if (minXForBenza != -1) pos.x = Mathf.Max(pos.x, minXForBenza);
+            if (maxXForBenza != -1) pos.x = Mathf.Min(pos.x, maxXForBenza);
             pos.x += Random.Range(-10, 10f);
 
             pos.z += radius * Mathf.Sin(angle);
-            pos.z = Mathf.Min(pos.z, maxZForBenza);
+            if (minZForBenza != -1) pos.z = Mathf.Max(pos.z, minZForBenza);
+            if (maxZForBenza != -1) pos.z = Mathf.Min(pos.z, maxZForBenza);
             pos.z += Random.Range(-10, 10f);
 
 

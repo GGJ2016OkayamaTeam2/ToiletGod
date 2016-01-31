@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour {
 	public int sprayUsageRemain;
 	private int curSprayRemain;
 
+    private int round = 0;
+
+    [SerializeField] private Entity_LevelData levelDataSheet;
+    private Entity_LevelData.Param levelData;
+
 	public enum SceneState{
 		Main,
 		Credit,
@@ -30,10 +35,19 @@ public class GameManager : MonoBehaviour {
 		return _gm;
 	}
 
+    void InitLevelData()
+    {
+        levelData = levelDataSheet.sheets[0].list[round];
+        stopWatch = new StopWatch(levelData.time_limit);
+    }
 
 	// Use this for initialization
 	void Start () {
-		stopWatch = new StopWatch ();//Default State is Zero.
+        InitLevelData();
+
+		//stopWatch = new StopWatch ();//Default State is Zero.
+
+
 		stopWatch.changeState ();//State: Zero state to Play state.
 		this.curSprayRemain = this.sprayUsageRemain;
 	}
@@ -62,7 +76,7 @@ public class GameManager : MonoBehaviour {
 			FadeManager.Instance.LoadLevel ("main", 2);
 			break;
 		case SceneState.Toile:
-			FadeManager.Instance.LoadLevel ("Toire", 2);
+			FadeManager.Instance.LoadLevel ("Toire", 1);
 			break;
 		case SceneState.Toile1:
 			FadeManager.Instance.LoadLevel ("Toire 1", 2);
@@ -109,6 +123,11 @@ public class StopWatch{
 	public StopWatch(){
 		this.timeLimit = new TimeSpan(0, 0, this.secTimeLimit);//0時間5分0秒.
 	}
+
+    public StopWatch(int limitSec)
+    {
+        this.timeLimit = new TimeSpan(0, 0, limitSec);
+    }
 
 	public void update () {
 		UpdateTime();
