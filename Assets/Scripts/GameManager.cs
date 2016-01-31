@@ -171,6 +171,10 @@ public class GameManager : MonoBehaviour {
                 FadeManager.Instance.LoadLevel ("main", 1);
 			break;
 
+            case SceneState.Credit:
+                FadeManager.Instance.LoadLevel("Credit", 1);
+                break;
+
             case SceneState.Toile:
                 AudioManager.Instance.CrossFade(BGM.BGM1, 1);
                 FadeManager.Instance.LoadLevel ("Toire", 1);
