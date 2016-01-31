@@ -76,6 +76,16 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager> {
 			time += Time.deltaTime;
 			yield return 0;
 		}
+		onFadeFinished ();
 		this.isFading = false;
+	}
+
+	public void onFadeFinished(){
+		GameObject go = GameObject.Find ("CutinText");
+		if (go != null) {
+			Debug.Log("Find CutinText");
+			//ここでCutinTextにあるゲームコンポーネントのCutinAnimationスクリプトの
+			// execCutin()を呼び出せば、カットインが始まる.
+		}
 	}
 }
