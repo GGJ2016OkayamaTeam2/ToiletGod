@@ -83,46 +83,44 @@ public class HandController : MonoBehaviour {
         // ----- SPRAY -----
         if (Input.GetMouseButtonDown(1))
         {
-            //if(GameManager.GetManager().CanUseSpray())
-            //{            
-
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            IErasable[] erasables;
-
-            var targets = Physics.SphereCastAll(ray, sprayRadius, Mathf.Infinity);
-
-            erasables = targets
-                .Select(t => t.transform.GetComponent<IErasable>())
-                .ToArray();
-
-            var duration = 0f;
-
-            if(erasables != null && erasables.Length >= 1 )
+            if(GameManager.GetGameManager().getSprayRemain() > 0)
             {
-                var sprayPos = transform.position + sprayOffs;
-                sprayPos.y = sprayParticle.transform.position.y;
-                Debug.Log(sprayPos);
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                IErasable[] erasables;
 
-                var spray = Instantiate(sprayParticle, sprayPos / 10, sprayParticle.transform.rotation) as ParticleSystem;
-                duration = spray.duration;            
-                Destroy(spray, duration);
-            }
+                var targets = Physics.SphereCastAll(ray, sprayRadius, Mathf.Infinity);
 
-            var simage = Instantiate(sprayImage, transform.position + new Vector3(60, 30, 0), sprayImage.rotation) as RectTransform;
-            //simage.parent = transform.parent;
-            simage.SetParent(transform.parent);
-            Destroy(simage.gameObject, duration);
+                erasables = targets
+                    .Select(t => t.transform.GetComponent<IErasable>())
+                    .ToArray();
 
-            foreach (var erasable in erasables)
-            {
-                if (erasable != null)
+                var duration = 0f;
+
+                if (erasables != null && erasables.Length >= 1)
                 {
-                    erasable.Erase(sprayForce);
-                }
-            }            
+                    var sprayPos = transform.position + sprayOffs;
+                    sprayPos.y = sprayParticle.transform.position.y;
 
-            // GameManager.GetManager().DecSprayCount();
-            //}
+                    var spray = Instantiate(sprayParticle, sprayPos / 10, sprayParticle.transform.rotation) as ParticleSystem;
+                    duration = spray.duration;
+                    Destroy(spray, duration);
+                }
+
+                var simage = Instantiate(sprayImage, transform.position + new Vector3(60, 30, 0), sprayImage.rotation) as RectTransform;
+                //simage.parent = transform.parent;
+                simage.SetParent(transform.parent);
+                Destroy(simage.gameObject, duration);
+
+                foreach (var erasable in erasables)
+                {
+                    if (erasable != null)
+                    {
+                        erasable.Erase(sprayForce);
+                    }
+                }
+
+                GameManager.GetGameManager().decSprayCount();
+            }       
         }
     }
 }
