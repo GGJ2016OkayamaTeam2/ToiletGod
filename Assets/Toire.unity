@@ -575,6 +575,10 @@ Prefab:
       propertyPath: yogore
       value: 
       objectReference: {fileID: 496624, guid: 853f2abae3dd54aa7a4d30374cbecb88, type: 2}
+    - target: {fileID: 11443114, guid: 33f3af00dfd61cb46b0a22666f9d7858, type: 2}
+      propertyPath: l2dChar
+      value: 
+      objectReference: {fileID: 152244, guid: e8853c231ccd0493eb0a1910cb2598b0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33f3af00dfd61cb46b0a22666f9d7858, type: 2}
   m_IsPrefabParent: 0
