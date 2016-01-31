@@ -19,6 +19,8 @@ public class YogoreManager : MonoBehaviour {
     [SerializeField] private float angleRandomMax = 5f;
 
     private int yogoreCount;
+	private bool isClear = false;
+	private float elapsedCleardTime;
 
     // cache manager.
     private static YogoreManager _manager;
@@ -36,6 +38,7 @@ public class YogoreManager : MonoBehaviour {
     }
 
     [SerializeField] private Transform yogore;
+	[SerializeField] private GameObject l2dChar;
 
 
     void Awake()
@@ -55,6 +58,7 @@ public class YogoreManager : MonoBehaviour {
 
     public void InitStage(int index)
     {
+		this.isClear = false;
         // select data
         levelData = levelSheetData.sheets[0].list[index];
 
@@ -91,12 +95,37 @@ public class YogoreManager : MonoBehaviour {
         }
     }
 
+	void Update(){
+		if (this.isClear) {
+			delay5Sec ();//5秒経過したら強制的に結果画面へ.
+
+			if (Input.GetMouseButtonDown (0)) {
+				GameManager.GetGameManager().CheckScoreAndGotoResult();
+			}
+		}
+	}
+
     public void DecYogoreCount()
     {
         yogoreCount--;
-        if(yogoreCount <= 0)
+		if(yogoreCount <= 0 && !this.isClear)
         {
-            GameManager.GetGameManager().CheckScoreAndGotoResult();
+			this.isClear = true;
+			this.displayLive2DChar ();
         }
     }
+
+	private void displayLive2DChar(){
+		// プレハブからインスタンスを生成	
+		GameObject l2Char = (GameObject)Instantiate (this.l2dChar, new Vector3(-115,230,90), Quaternion.identity);
+		l2Char.transform.Rotate(90, 0, 0);
+	}
+
+	private void delay5Sec(){
+		this.elapsedCleardTime += Time.deltaTime;
+		Debug.Log (this.elapsedCleardTime);
+		if (this.elapsedCleardTime >= 5.0f) {
+			GameManager.GetGameManager().CheckScoreAndGotoResult();
+		}
+	}
 }

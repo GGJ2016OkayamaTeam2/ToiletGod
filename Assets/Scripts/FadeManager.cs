@@ -82,8 +82,8 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager> {
 
 	public void onFadeFinished(){
 		GameObject go = GameObject.Find ("CutinText");
-		CutinAnimation cutin = go.transform.GetComponentInChildren<CutinAnimation> ();
 		if (go != null) {
+			CutinAnimation cutin = go.transform.GetComponentInChildren<CutinAnimation> ();
 			cutin.execCutin ();
 			Debug.Log("Find CutinText");
 			//ここでCutinTextにあるゲームコンポーネントのCutinAnimationスクリプトの
