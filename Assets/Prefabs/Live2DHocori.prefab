@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 496624}
   - 114: {fileID: 11403504}
   - 65: {fileID: 6593064}
+  - 114: {fileID: 11409420}
   m_Layer: 0
   m_Name: Live2DHocori
   m_TagString: Untagged
@@ -23,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121228}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: -0.12, z: -1.96}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 32.7, y: 248.4, z: 79.5}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -39,7 +40,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11403504
 MonoBehaviour:
@@ -59,13 +60,45 @@ MonoBehaviour:
   mtnFiles:
   - {fileID: 4900000, guid: 05da78a6371f14857be50a38038792be, type: 3}
   isMotionLoop: 1
+--- !u!114 &11409420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ec2273c1858c14ea6bb3dbbce75296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yogoreSheetData: {fileID: 11400000, guid: 2fbd7649b1792034d965baaaa3302e64, type: 2}
+  yogoreType: 0
+  cleanupEffect: {fileID: 19835348, guid: 9f98815cec470c2458d87cb1bd4fcf66, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cleanupEffect
+      value: 
+      objectReference: {fileID: 19835348, guid: 9f98815cec470c2458d87cb1bd4fcf66,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: yogoreSheetData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2fbd7649b1792034d965baaaa3302e64,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 121228}

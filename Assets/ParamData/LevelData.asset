@@ -15,7 +15,7 @@ MonoBehaviour:
   - name: LevelData
     list:
     - stage: 0
-      yogore_count: 200
+      yogore_count: 100
       time_limit: 30
     - stage: 1
       yogore_count: 15

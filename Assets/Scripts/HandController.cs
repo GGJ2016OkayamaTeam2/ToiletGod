@@ -71,6 +71,7 @@ public class HandController : MonoBehaviour {
                 {
                     if(erasable != null)
                     {
+                        Debug.Log("call");
                         erasable.Erase(zoukinForce);
                     }
                 }
@@ -118,7 +119,8 @@ public class HandController : MonoBehaviour {
                 {
                     erasable.Erase(sprayForce);
                 }
-            }
+            }            
+
             // GameManager.GetManager().DecSprayCount();
             //}
         }

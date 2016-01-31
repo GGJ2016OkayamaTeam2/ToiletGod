@@ -46,7 +46,7 @@ public class LevelData_importer : AssetPostprocessor {
 						
 					cell = row.GetCell(0); p.stage = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(1); p.yogore_count = (int)(cell == null ? 0 : cell.NumericCellValue);
-					cell = row.GetCell(2); p.time_limit = (float)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(2); p.time_limit = (int)(cell == null ? 0 : cell.NumericCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);
