@@ -25,9 +25,6 @@ public class HandController : MonoBehaviour {
     [SerializeField] private float sprayRadius = 5;
     [SerializeField] private int sprayForce = 10;
 
-    [SerializeField] private ParticleSystem sprayParticle = null;
-    [SerializeField] private Vector3 sprayOffs = Vector3.zero;
-
     //[SerializeField] private RectTransform sprayImage;
 
     [SerializeField] private GameObject spray;
@@ -138,6 +135,8 @@ public class HandController : MonoBehaviour {
                         .Select(t => t.transform.GetComponent<IErasable>())
                         .ToArray();
 
+                    AudioManager.Instance.PlaySE(Resources.Load("kyyu") as AudioClip, 1);
+
                     foreach (var erasable in erasables)
                     {
                         if (erasable != null)
@@ -166,6 +165,8 @@ public class HandController : MonoBehaviour {
                     erasables = targets
                         .Select(t => t.transform.GetComponent<IErasable>())
                         .ToArray();
+
+                    AudioManager.Instance.PlaySE(Resources.Load("spray") as AudioClip, 0.7f);
 
                     //var duration = 0f;
 
