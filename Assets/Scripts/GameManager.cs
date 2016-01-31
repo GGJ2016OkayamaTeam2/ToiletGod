@@ -6,7 +6,8 @@ using System;
 public class GameManager : MonoBehaviour {
 	//public StopWatch stopWatch;
 	[SerializeField] private int sprayUsageRemain;
-	private int curSprayRemain;
+	private int curSprayRemain = 5;
+    private bool canUseSpray = true;
 
     private int round = 0;
     private int score = 0;
@@ -41,6 +42,8 @@ public class GameManager : MonoBehaviour {
 		return _gm;
 	}
 
+    
+
     void Awake()
     {
         if(_gm && _gm != this)
@@ -57,7 +60,19 @@ public class GameManager : MonoBehaviour {
         timeLimit = levelData.time_limit;
         score = 0;
         this.curSprayRemain = this.sprayUsageRemain;
+        canUseSpray = true;
+
         //stopWatch = new StopWatch(levelData.time_limit);
+    }
+
+    public void SetEnableSpray(bool value)
+    {
+        canUseSpray = value;
+    }
+
+    public bool CanUseSpray()
+    {
+        return canUseSpray;
     }
 
 	// Use this for initialization
@@ -170,6 +185,10 @@ public class GameManager : MonoBehaviour {
 
 	public void decSprayCount(){
 		this.curSprayRemain--;
+        if(curSprayRemain <= 0)
+        {
+            SetEnableSpray(false);
+        }
 	}
 
 	public int getSprayRemain(){
