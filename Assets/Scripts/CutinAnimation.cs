@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CutinAnimation : MonoBehaviour {
-
+	public Text cutinText;
+	public string text = "GameStart!";
 	public GameObject target, target2;
 	const float EASING = 0.05f;
 	bool m_startAnimation = false;
 	bool isStartSecondAnimation = false;
 
+
 	// Use this for initialization
 	void Start () {
-
+		this.cutinText.text = this.text;
 	}
 
-	void OnGUI()
-	{
-		if( GUI.Button( new Rect(20, 20, 100, 50), "Start" ) )
-		{
-			m_startAnimation = true;
-		}
+	public void setText(string text){
+		this.text = text;
+	}
+
+	public void execCutin(){
+		this.m_startAnimation = true;
 	}
 
 	// Update is called once per frame
