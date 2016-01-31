@@ -1,0 +1,9 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "GOD_00",
+	"model": "GOD_00.moc",
+	"textures": [
+		"GOD_00.2048/texture_00.png",
+		"GOD_00.2048/texture_01.png"
+	]
+}
