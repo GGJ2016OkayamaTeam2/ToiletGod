@@ -262,8 +262,6 @@ MonoBehaviour:
   zoukinForce: 5
   sprayRadius: 25
   sprayForce: 10
-  sprayParticle: {fileID: 19863004, guid: 9de1535bb280d8746b104279c18a9441, type: 2}
-  sprayOffs: {x: 40, y: 40, z: 0}
   spray: {fileID: 1129097371}
   zoukin: {fileID: 1202037931}
   sprayQuanImage: {fileID: 2118677935}
@@ -582,7 +580,7 @@ Prefab:
     - target: {fileID: 11443114, guid: 33f3af00dfd61cb46b0a22666f9d7858, type: 2}
       propertyPath: l2dChar
       value: 
-      objectReference: {fileID: 152244, guid: e8853c231ccd0493eb0a1910cb2598b0, type: 2}
+      objectReference: {fileID: 187242, guid: b285da16fba8640448060b0de2e3a587, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33f3af00dfd61cb46b0a22666f9d7858, type: 2}
   m_IsPrefabParent: 0
