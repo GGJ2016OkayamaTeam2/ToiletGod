@@ -82,7 +82,9 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager> {
 
 	public void onFadeFinished(){
 		GameObject go = GameObject.Find ("CutinText");
+		CutinAnimation cutin = go.transform.GetComponentInChildren<CutinAnimation> ();
 		if (go != null) {
+			cutin.execCutin ();
 			Debug.Log("Find CutinText");
 			//ここでCutinTextにあるゲームコンポーネントのCutinAnimationスクリプトの
 			// execCutin()を呼び出せば、カットインが始まる.
