@@ -18,6 +18,8 @@ public class YogoreManager : MonoBehaviour {
     [SerializeField] private float angleRandomMin = -5f;
     [SerializeField] private float angleRandomMax = 5f;
 
+    private int yogoreCount;
+
     // cache manager.
     private static YogoreManager _manager;
     public static YogoreManager GetManager()
@@ -62,6 +64,7 @@ public class YogoreManager : MonoBehaviour {
         {
             yogores.Add(Instantiate(yogore) as Transform);
         }
+        yogoreCount = yogores.Count;
 
         // layout circlely.
         float angleDiff = 360f / yogores.Count;
@@ -85,6 +88,15 @@ public class YogoreManager : MonoBehaviour {
 
 
             yogores[i].transform.position = pos;
+        }
+    }
+
+    public void DecYogoreCount()
+    {
+        yogoreCount--;
+        if(yogoreCount <= 0)
+        {
+            GameManager.GetGameManager().CheckScoreAndGotoResult();
         }
     }
 }
