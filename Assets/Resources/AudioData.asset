@@ -17,17 +17,41 @@ MonoBehaviour:
   bgmDictionary:
     keys:
     - BGM1
+    - clap_excellent
+    - clap
+    - miss
+    - kyyu
+    - kira
+    - spray
     values:
     - {fileID: 8300000, guid: b9e69c9663916fd4e9de228be33ad719, type: 3}
+    - {fileID: 8300000, guid: aefb393159a2e5848ba33dd4e20e6175, type: 3}
+    - {fileID: 8300000, guid: c3408e1e9dda3c2478042dd2e16eb985, type: 3}
+    - {fileID: 8300000, guid: d2ae20fb1e5882547b6c2ffcb913f504, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   seDictionary:
     keys:
     - clap_excellent
     - clap
     - miss
+    - "\u304D\u3085\u3063\u304D\u3085\u78E8\u304F\uFF11"
+    - "\u30AD\u30E9\u30AD\u30E9"
+    - "\u30B9\u30D7\u30EC\u30FC\u97F3"
+    - kyyu
+    - kira
+    - spray
     values:
     - {fileID: 8300000, guid: aefb393159a2e5848ba33dd4e20e6175, type: 3}
     - {fileID: 8300000, guid: c3408e1e9dda3c2478042dd2e16eb985, type: 3}
     - {fileID: 8300000, guid: d2ae20fb1e5882547b6c2ffcb913f504, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   mixerDictionary:
     keys: []
     values: []
@@ -36,7 +60,15 @@ MonoBehaviour:
     values: []
   bgmFilePathList:
   - Assets/Audio/BGM/BGM1.wav
+  - Assets/Audio/BGM/clap_excellent.mp3
+  - Assets/Audio/BGM/clap.mp3
+  - Assets/Audio/BGM/miss.mp3
+  - Assets/Audio/BGM/kyyu.mp3
+  - Assets/Audio/BGM/kira.mp3
+  - Assets/Audio/BGM/spray.mp3
   seFilePathList:
-  - Assets/Audio/SE/clap_excellent.mp3
-  - Assets/Audio/SE/clap.mp3
-  - Assets/Audio/SE/miss.mp3
+  - "Assets/Audio/SE/\u304D\u3085\u3063\u304D\u3085\u78E8\u304F\uFF11.mp3"
+  - "Assets/Audio/SE/\u30AD\u30E9\u30AD\u30E9.mp3"
+  - "Assets/Audio/SE/\u30B9\u30D7\u30EC\u30FC\u97F3.mp3"
+  - Assets/Audio/SE/kyyu.mp3
+  - Assets/Audio/SE/spray.mp3

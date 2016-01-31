@@ -146,6 +146,7 @@ public class AudioDataProcessor : AssetPostprocessor
         foreach (var path in audioFilePathList)
         {
             var audio = AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip)) as AudioClip;
+            if (audio == null) continue;
             var replacedAudioName = ReplaceString(audio.name);
             builder.AppendFormat(@"    public static AudioClip {0} {{ get {{ return audioData.Get{1}(""{2}""); }} }}", replacedAudioName, type, replacedAudioName).AppendLine();
         }

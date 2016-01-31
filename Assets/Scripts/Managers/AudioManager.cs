@@ -34,7 +34,7 @@ public class AudioManager : MonoSingleton<AudioManager> {
         for (int i = 0; i < BgmSourceSize; i++)
         {
             sources[i] = gameObject.AddComponent<AudioSource>() as AudioSource;
-            sources[i].volume = 0.0f;
+            sources[i].volume = 1.0f;
             sources[i].loop = true;
         }
 
@@ -63,7 +63,7 @@ public class AudioManager : MonoSingleton<AudioManager> {
         currentBGMSource.Play();
     }
     
-    public void PlaySE(AudioClip clip, AudioMixerGroup group = null)
+    public void PlaySE(AudioClip clip, float volume ,AudioMixerGroup group = null)
     {
         for (int i = BgmSourceSize; i < sourceSize; i++)
         {
