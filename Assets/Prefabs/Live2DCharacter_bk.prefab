@@ -1,51 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &187242
+--- !u!1 &152244
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 474236}
-  - 114: {fileID: 11496194}
+  - 4: {fileID: 461568}
+  - 114: {fileID: 11475804}
   m_Layer: 0
-  m_Name: Live2DCharacter
+  m_Name: Live2DCharacter_bk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &474236
+--- !u!4 &461568
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187242}
+  m_GameObject: {fileID: 152244}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0.8041141, y: -0.26312065, z: 0.98382115}
   m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11496194
+--- !u!114 &11475804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187242}
+  m_GameObject: {fileID: 152244}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc6bd128ed67847a3966e8fadd247a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mocFile: {fileID: 4900000, guid: f83144f23887e4716b2d3195c5e6d467, type: 3}
-  physicsFile: {fileID: 4900000, guid: 71aeda153e0cd420aba8f65866116821, type: 3}
+  mocFile: {fileID: 4900000, guid: 0a3a34f5d6dc74921bf9163d0b5b589a, type: 3}
+  physicsFile: {fileID: 4900000, guid: 09f22be3e575f4356bb8f90c04e46f19, type: 3}
   textureFiles:
-  - {fileID: 2800000, guid: 4ff6535a19fe04fd3974d4c3faad5f3a, type: 3}
-  - {fileID: 2800000, guid: a2cf7b19e1e6d40189049b4a253d3495, type: 3}
+  - {fileID: 2800000, guid: bab73ebfdf1fc47b2947780fd0f796f4, type: 3}
   mtnFiles:
-  - {fileID: 4900000, guid: 9d5516106748d474b83e8dcd92197c49, type: 3}
+  - {fileID: 4900000, guid: f877117a1175e4e75944188a201e5ae2, type: 3}
   isMotionLoop: 1
 --- !u!1001 &100100000
 Prefab:
@@ -53,8 +52,28 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: isMotionLoop
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 187242}
+  m_RootGameObject: {fileID: 152244}
   m_IsPrefabParent: 1
